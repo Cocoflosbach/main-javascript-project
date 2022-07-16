@@ -1,10 +1,7 @@
-let playerScore = 0;
-let computerScore = 0;
-
 const computerSelection = computerPlay().toLowerCase();
 
 function computerPlay() {
-  num = Math.floor(Math.random() * 3);
+  num = Math.floor(Math.random() * 2);
   if ((num = 0)) {
     return "Rock!";
   } else if ((num = 1)) {
@@ -14,7 +11,10 @@ function computerPlay() {
   }
 }
 
-function playRound(playerSelection, computerSelection) {
+function play(playerSelection, computerSelection) {
+  let playerScore = 0;
+  let computerScore = 0;
+
   if (
     (playerSelection === "rock" && computerSelection === "rock") ||
     (playerSelection === "paper" && computerSelection === "paper") ||
@@ -40,6 +40,8 @@ function playRound(playerSelection, computerSelection) {
     computerScore++;
     return "You Won! Rock beats Scissors";
   }
+  console.log(playerSelection, computerSelection);
+  console.log(playerScore, computerScore);
 }
 
 function gameScores() {
@@ -66,8 +68,8 @@ function game() {
       "Your Play! Choose between Rock, Paper and Scissors"
     ).toLowerCase();
     let computerSelection = computerPlay();
-    playRound(playerSelection, computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
+    play(playerSelection, computerSelection);
+    console.log(play(playerSelection, computerSelection));
   }
   console.log(gameScores());
 }
